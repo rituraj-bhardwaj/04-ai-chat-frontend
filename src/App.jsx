@@ -11,17 +11,9 @@ function App() {
   const [error, setError] = useState("");
 
 
-  // const eventSource = new EventSource("http://localhost:3000/api/chat");
+  // const eventSource = new EventSource("BACKEND_URL");
 
-  // chat prototype..
-  // const chat = {
-  //   id: "id",
-  //   role: "user/bot",
-  //   content: "message",
-  //   isStreaming: true/false
-  // }
-
-
+  
   async function createChat(formData) {
     const id = uuid();
     const newChat = {
@@ -68,7 +60,7 @@ function App() {
 
     try {
       setError("");
-      const response = await fetch("http://localhost:3000/api/chat-stream", {
+      const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/chat-stream`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -120,13 +112,13 @@ function App() {
 
   return (
     <div>
-      <header class="text-2xl font-bold text-white header-gradient p-4 text-center shadow-md">
+      <header className="text-2xl font-bold text-white header-gradient p-4 text-center shadow-md">
         💬 Chat-AI
       </header>
 
       {error && <p className='text-red-600 text-sm p-2'>{error}</p>}
       <ChatContainer messages={chats} className={"h-[80vh]"} />
-      <InputForm value={prompt} setValue={setPrompt} createChat={createChat} />
+      <InputForm value={prompt} setValue={setPrompt} createChat={createChat} isStreaming={stream}/>
     </div>
   )
 }

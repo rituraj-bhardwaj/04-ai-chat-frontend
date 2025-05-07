@@ -8,12 +8,12 @@ const Message = ({ id, messageType, message }) => {
     return (
         <div
             id={id}
-            className={`p-2 flex rounded-lg text-lg text-left text-white`}
+            className={`p-2 flex rounded-lg flex-col text-lg text-left text-white`}
         >
             <img src={messageType === "user" ? user : bot} alt="bot or user icon"
                 className='w-8 h-8'
             />
-            <div className="prose p-2">
+            <div className="prose p-2 pl-8">
                 <ReactMarkdown remarkPlugins={[remarkGfm]}>
                     {message}
                 </ReactMarkdown>

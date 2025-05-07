@@ -1,7 +1,7 @@
 import React from 'react';
 import send from "../assets/send.svg";
 
-const InputForm = ({ value, setValue, createChat }) => {
+const InputForm = ({ value, setValue, createChat, isStreaming }) => {
     return (
         <form
             action={createChat}
@@ -18,6 +18,7 @@ const InputForm = ({ value, setValue, createChat }) => {
             <button
                 type="submit"
                 className="bg-blue-600 hover:bg-blue-700 p-2 rounded-full transition-all duration-200"
+                disabled={value.length === 0 || isStreaming}
             >
                 <img src={send} alt="Send" className="w-6 h-6 invert" />
             </button>
