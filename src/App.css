@@ -1,5 +1,12 @@
 #root {
-  max-width: 1280px;
+  max-width: 1024px;
   margin: 0 auto;
   text-align: center;
+  min-height: 100vh;
 }
+
+.slick-slide > div {
+  display: flex;
+  justify-content: center;
+}
+

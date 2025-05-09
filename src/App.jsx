@@ -112,12 +112,12 @@ function App() {
 
   return (
     <div>
-      <header className="text-2xl font-bold text-white header-gradient p-4 text-center shadow-md">
+      <header className="w-full text-2xl font-bold text-white header-gradient p-4 text-center shadow-md">
         💬 Chat-AI
       </header>
 
       {error && <p className='text-red-600 text-sm p-2'>{error}</p>}
-      <ChatContainer messages={chats} className={"h-[80vh]"} />
+      <ChatContainer messages={chats} className={"h-[75vh]"} />
       <InputForm value={prompt} setValue={setPrompt} createChat={createChat} isStreaming={stream}/>
     </div>
   )
